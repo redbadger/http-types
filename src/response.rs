@@ -496,7 +496,7 @@ impl Response {
     }
 
     /// Sends an upgrade connection to the a receiver.
-    #[cfg_attr(feature = "docs", doc(cfg(unstable)))]
+    // #[cfg_attr(feature = "docs", doc(cfg(unstable)))]
     pub fn send_upgrade(&mut self) -> upgrade::Sender {
         self.has_upgrade = true;
         let sender = self
@@ -507,7 +507,7 @@ impl Response {
     }
 
     /// Receive an upgraded connection from a sender.
-    #[cfg_attr(feature = "docs", doc(cfg(unstable)))]
+    // #[cfg_attr(feature = "docs", doc(cfg(unstable)))]
     pub async fn recv_upgrade(&mut self) -> upgrade::Receiver {
         self.has_upgrade = true;
         let receiver = self
@@ -518,7 +518,7 @@ impl Response {
     }
 
     /// Returns `true` if a protocol upgrade is in progress.
-    #[cfg_attr(feature = "docs", doc(cfg(unstable)))]
+    // #[cfg_attr(feature = "docs", doc(cfg(unstable)))]
     pub fn has_upgrade(&self) -> bool {
         self.has_upgrade
     }

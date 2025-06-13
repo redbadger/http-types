@@ -27,7 +27,7 @@ use crate::headers::{
 /// res.insert_header("hello", "foo0");
 /// assert_eq!(res["hello"], "foo0");
 /// ```
-#[derive(Clone)]
+#[derive(facet::Facet, Clone)]
 pub struct Headers {
     pub(crate) headers: HashMap<HeaderName, HeaderValues>,
 }

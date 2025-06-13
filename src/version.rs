@@ -1,7 +1,8 @@
 use serde::{de::Error, de::Visitor, Deserialize, Deserializer, Serialize, Serializer};
 /// The version of the HTTP protocol in use.
-#[derive(Copy, Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(facet::Facet, Copy, Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 #[non_exhaustive]
+#[repr(u8)]
 pub enum Version {
     /// HTTP/0.9
     Http0_9,

@@ -9,7 +9,7 @@ use crate::Error;
 use crate::Mime;
 
 /// A header value.
-#[derive(Clone, Eq, PartialEq, Hash)]
+#[derive(facet::Facet, Clone, Eq, PartialEq, Hash)]
 pub struct HeaderValue {
     inner: String,
 }

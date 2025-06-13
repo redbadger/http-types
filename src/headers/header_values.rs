@@ -8,7 +8,7 @@ use std::slice::SliceIndex;
 /// A list of `HeaderValue`s.
 ///
 /// This always contains at least one header value.
-#[derive(Clone)]
+#[derive(facet::Facet, Clone)]
 pub struct HeaderValues {
     pub(crate) inner: Vec<HeaderValue>,
 }

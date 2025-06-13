@@ -5,7 +5,7 @@ use std::str::FromStr;
 use crate::Error;
 
 /// A header name.
-#[derive(Clone, PartialEq, Eq, Hash)]
+#[derive(facet::Facet, Clone, PartialEq, Eq, Hash)]
 pub struct HeaderName(Cow<'static, str>);
 
 impl HeaderName {
