@@ -1,6 +1,6 @@
 [package]
-name = "http-types"
-version = "2.12.0"
+name = "http-types-red-badger-temporary-fork"
+version = "3.0.0"
 authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
 edition = "2018"
 description = "Common types for HTTP operations."
