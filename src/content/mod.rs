@@ -12,10 +12,10 @@
 //! # Examples
 //!
 //! ```
-//! # fn main() -> http_types::Result<()> {
+//! # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 //! #
-//! use http_types::content::{Accept, MediaTypeProposal};
-//! use http_types::{mime, Response};
+//! use http_types_red_badger_temporary_fork::content::{Accept, MediaTypeProposal};
+//! use http_types_red_badger_temporary_fork::{mime, Response};
 //!
 //! let mut accept = Accept::new();
 //! accept.push(MediaTypeProposal::new(mime::HTML, Some(0.8))?);

@@ -14,10 +14,10 @@ use std::time::SystemTime;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::conditional::LastModified;
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::conditional::LastModified;
 /// use std::time::{SystemTime, Duration};
 ///
 /// let time = SystemTime::now() + Duration::from_secs(5 * 60);

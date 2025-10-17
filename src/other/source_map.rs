@@ -14,10 +14,10 @@ use std::convert::TryInto;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::{Response, Url};
-/// use http_types::other::SourceMap;
+/// use http_types_red_badger_temporary_fork::{Response, Url};
+/// use http_types_red_badger_temporary_fork::other::SourceMap;
 ///
 /// let source_map = SourceMap::new(Url::parse("https://example.net/")?);
 ///

@@ -42,7 +42,7 @@ impl<'a> Forwarded<'a> {
     ///
     /// # Examples
     /// ```rust
-    /// # use http_types::{proxies::Forwarded, Method::Get, Request, Url, Result};
+    /// # use http_types_red_badger_temporary_fork::{proxies::Forwarded, Method::Get, Request, Url, Result};
     /// # fn main() -> Result<()> {
     /// let mut request = Request::new(Get, Url::parse("http://_/")?);
     /// request.insert_header(
@@ -56,7 +56,7 @@ impl<'a> Forwarded<'a> {
     /// ```
     ///
     /// ```rust
-    /// # use http_types::{proxies::Forwarded, Method::Get, Request, Url, Result};
+    /// # use http_types_red_badger_temporary_fork::{proxies::Forwarded, Method::Get, Request, Url, Result};
     /// # fn main() -> Result<()> {
     /// let mut request = Request::new(Get, Url::parse("http://_/")?);
     /// request.insert_header("X-Forwarded-For", "192.0.2.43, 2001:db8:cafe::17, unknown");
@@ -70,7 +70,6 @@ impl<'a> Forwarded<'a> {
     /// );
     /// # Ok(()) }
     /// ```
-
     pub fn from_headers(headers: &'a impl AsRef<Headers>) -> Result<Option<Self>, ParseError> {
         if let Some(forwarded) = Self::from_forwarded_header(headers)? {
             Ok(Some(forwarded))
@@ -83,7 +82,7 @@ impl<'a> Forwarded<'a> {
     ///
     /// # Examples
     /// ```rust
-    /// # use http_types::{proxies::Forwarded, Method::Get, Request, Url, Result};
+    /// # use http_types_red_badger_temporary_fork::{proxies::Forwarded, Method::Get, Request, Url, Result};
     /// # fn main() -> Result<()> {
     /// let mut request = Request::new(Get, Url::parse("http://_/")?);
     /// request.insert_header(
@@ -96,7 +95,7 @@ impl<'a> Forwarded<'a> {
     /// # Ok(()) }
     /// ```
     /// ```rust
-    /// # use http_types::{proxies::Forwarded, Method::Get, Request, Url, Result};
+    /// # use http_types_red_badger_temporary_fork::{proxies::Forwarded, Method::Get, Request, Url, Result};
     /// # fn main() -> Result<()> {
     /// let mut request = Request::new(Get, Url::parse("http://_/")?);
     /// request.insert_header("X-Forwarded-For", "192.0.2.43, 2001:db8:cafe::17");
@@ -119,7 +118,7 @@ impl<'a> Forwarded<'a> {
     ///
     /// # Examples
     /// ```rust
-    /// # use http_types::{proxies::Forwarded, Method::Get, Request, Url, Result};
+    /// # use http_types_red_badger_temporary_fork::{proxies::Forwarded, Method::Get, Request, Url, Result};
     /// # fn main() -> Result<()> {
     /// let mut request = Request::new(Get, Url::parse("http://_/")?);
     /// request.insert_header("X-Forwarded-For", "192.0.2.43, 2001:db8:cafe::17");
@@ -128,7 +127,7 @@ impl<'a> Forwarded<'a> {
     /// # Ok(()) }
     /// ```
     /// ```rust
-    /// # use http_types::{proxies::Forwarded, Method::Get, Request, Url, Result};
+    /// # use http_types_red_badger_temporary_fork::{proxies::Forwarded, Method::Get, Request, Url, Result};
     /// # fn main() -> Result<()> {
     /// let mut request = Request::new(Get, Url::parse("http://_/")?);
     /// request.insert_header(
@@ -149,7 +148,7 @@ impl<'a> Forwarded<'a> {
                     .map(|v| {
                         let v = v.trim();
                         match v.parse::<IpAddr>().ok() {
-                            Some(IpAddr::V6(v6)) => Cow::Owned(format!(r#"[{}]"#, v6)),
+                            Some(IpAddr::V6(v6)) => Cow::Owned(format!(r"[{}]", v6)),
                             _ => Cow::Borrowed(v),
                         }
                     })
@@ -181,7 +180,7 @@ impl<'a> Forwarded<'a> {
     ///
     /// # Examples
     /// ```rust
-    /// # use http_types::{proxies::Forwarded, Method::Get, Request, Url, Result};
+    /// # use http_types_red_badger_temporary_fork::{proxies::Forwarded, Method::Get, Request, Url, Result};
     /// # fn main() -> Result<()> {
     /// let forwarded = Forwarded::parse(
     ///     r#"for=192.0.2.43,         for="[2001:db8:cafe::17]", FOR=unknown;proto=https"#
@@ -306,8 +305,8 @@ impl<'a> Forwarded<'a> {
     /// # Example
     ///
     /// ```rust
-    /// let mut response = http_types::Response::new(200);
-    /// let mut forwarded = http_types::proxies::Forwarded::new();
+    /// let mut response = http_types_red_badger_temporary_fork::Response::new(200);
+    /// let mut forwarded = http_types_red_badger_temporary_fork::proxies::Forwarded::new();
     /// forwarded.add_for("192.0.2.43");
     /// forwarded.add_for("[2001:db8:cafe::17]");
     /// forwarded.set_proto("https");
@@ -323,8 +322,8 @@ impl<'a> Forwarded<'a> {
     /// # Example
     ///
     /// ```rust
-    /// # fn main() -> http_types::Result<()> {
-    /// let mut forwarded = http_types::proxies::Forwarded::new();
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
+    /// let mut forwarded = http_types_red_badger_temporary_fork::proxies::Forwarded::new();
     /// forwarded.add_for("_haproxy");
     /// forwarded.add_for("[2001:db8:cafe::17]");
     /// forwarded.set_proto("https");
@@ -584,7 +583,7 @@ mod tests {
             "unable to parse forwarded header: for= without valid value"
         );
 
-        let err = Forwarded::parse(r#"for=, for=;"#).unwrap_err();
+        let err = Forwarded::parse(r"for=, for=;").unwrap_err();
         assert_eq!(
             err.to_string(),
             "unable to parse forwarded header: for= without valid value"

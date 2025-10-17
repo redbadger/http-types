@@ -13,20 +13,20 @@ use crate::Status;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::trace::TraceContext;
+/// use http_types_red_badger_temporary_fork::trace::TraceContext;
 ///
-/// let mut res = http_types::Response::new(200);
+/// let mut res = http_types_red_badger_temporary_fork::Response::new(200);
 ///
 /// res.insert_header(
 ///     "traceparent",
-///     "00-0af7651916cd43dd8448eb211c80319c-00f067aa0ba902b7-01"
+///     "00-ffffffffffffffff-00f067aa0ba902b7-01"
 /// );
 ///
 /// let context = TraceContext::from_headers(&res)?.unwrap();
 ///
-/// let trace_id = u128::from_str_radix("0af7651916cd43dd8448eb211c80319c", 16);
+/// let trace_id = u64::from_str_radix("ffffffffffffffff", 16);
 /// let parent_id = u64::from_str_radix("00f067aa0ba902b7", 16);
 ///
 /// assert_eq!(context.trace_id(), trace_id.unwrap());
@@ -52,7 +52,7 @@ impl TraceContext {
     ///
     /// # Examples
     /// ```
-    /// use http_types::trace::TraceContext;
+    /// use http_types_red_badger_temporary_fork::trace::TraceContext;
     ///
     /// let context = TraceContext::new();
     ///
@@ -60,12 +60,12 @@ impl TraceContext {
     /// assert_eq!(context.sampled(), true);
     /// ```
     pub fn new() -> Self {
-        let mut rng = rand::thread_rng();
+        let mut rng = rand::rng();
 
         Self {
-            id: rng.gen(),
+            id: rng.random(),
             version: 0,
-            trace_id: rng.gen(),
+            trace_id: rng.random(),
             parent_id: None,
             flags: 1,
         }
@@ -81,19 +81,19 @@ impl TraceContext {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
     /// #
-    /// use http_types::trace::TraceContext;
+    /// use http_types_red_badger_temporary_fork::trace::TraceContext;
     ///
-    /// let mut res = http_types::Response::new(200);
+    /// let mut res = http_types_red_badger_temporary_fork::Response::new(200);
     /// res.insert_header(
     ///   "traceparent",
-    ///   "00-0af7651916cd43dd8448eb211c80319c-00f067aa0ba902b7-01"
+    ///   "00-ffffffffffffffff-00f067aa0ba902b7-01"
     /// );
     ///
     /// let context = TraceContext::from_headers(&res)?.unwrap();
     ///
-    /// let trace_id = u128::from_str_radix("0af7651916cd43dd8448eb211c80319c", 16);
+    /// let trace_id = u64::from_str_radix("ffffffffffffffff", 16);
     /// let parent_id = u64::from_str_radix("00f067aa0ba902b7", 16);
     ///
     /// assert_eq!(context.trace_id(), trace_id.unwrap());
@@ -104,7 +104,7 @@ impl TraceContext {
     /// ```
     pub fn from_headers(headers: impl AsRef<Headers>) -> crate::Result<Option<Self>> {
         let headers = headers.as_ref();
-        let mut rng = rand::thread_rng();
+        let mut rng = rand::rng();
 
         let traceparent = match headers.get(TRACEPARENT) {
             Some(header) => header,
@@ -113,7 +113,7 @@ impl TraceContext {
         let parts: Vec<&str> = traceparent.as_str().split('-').collect();
 
         Ok(Some(Self {
-            id: rng.gen(),
+            id: rng.random(),
             version: u8::from_str_radix(parts[0], 16)?,
             trace_id: u64::from_str_radix(parts[1], 16).status(400)?,
             parent_id: Some(u64::from_str_radix(parts[2], 16).status(400)?),
@@ -126,15 +126,15 @@ impl TraceContext {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
     /// #
-    /// use http_types::trace::TraceContext;
-    /// use http_types::{Request, Response, Url, Method};
+    /// use http_types_red_badger_temporary_fork::trace::TraceContext;
+    /// use http_types_red_badger_temporary_fork::{Request, Response, Url, Method};
     ///
     /// let mut req = Request::new(Method::Get, Url::parse("https://example.com").unwrap());
     /// req.insert_header(
     ///   "traceparent",
-    ///   "00-0af7651916cd43dd8448eb211c80319c-00f067aa0ba902b7-01"
+    ///   "00-ffffffffffffffff-00f067aa0ba902b7-01"
     /// );
     ///
     /// let parent = TraceContext::from_headers(&req)?.unwrap();
@@ -171,10 +171,10 @@ impl TraceContext {
     /// The child will have a new randomly genrated `id` and its `parent_id` will be set to the
     /// `id` of this TraceContext.
     pub fn child(&self) -> Self {
-        let mut rng = rand::thread_rng();
+        let mut rng = rand::rng();
 
         Self {
-            id: rng.gen(),
+            id: rng.random(),
             version: self.version,
             trace_id: self.trace_id,
             parent_id: Some(self.id),
@@ -212,10 +212,10 @@ impl TraceContext {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
     /// #
-    /// use http_types::trace::TraceContext;
-    /// use http_types::Response;
+    /// use http_types_red_badger_temporary_fork::trace::TraceContext;
+    /// use http_types_red_badger_temporary_fork::Response;
     ///
     /// let mut res = Response::new(200);
     /// res.insert_header("traceparent", "00-00000000000000000000000000000001-0000000000000002-01");
@@ -225,7 +225,7 @@ impl TraceContext {
     /// # Ok(()) }
     /// ```
     pub fn sampled(&self) -> bool {
-        (self.flags & 0b00000001) == 1
+        (self.flags & 0b0000_0001) == 1
     }
 
     /// Change sampled flag
@@ -233,7 +233,7 @@ impl TraceContext {
     /// # Examples
     ///
     /// ```
-    /// use http_types::trace::TraceContext;
+    /// use http_types_red_badger_temporary_fork::trace::TraceContext;
     ///
     /// let mut context = TraceContext::new();
     /// assert_eq!(context.sampled(), true);
@@ -267,7 +267,7 @@ mod test {
         let context = TraceContext::from_headers(&mut headers)?.unwrap();
         assert_eq!(context.version(), 0);
         assert_eq!(context.trace_id(), 1);
-        assert_eq!(context.parent_id().unwrap(), 3735928559);
+        assert_eq!(context.parent_id().unwrap(), 3_735_928_559);
         assert_eq!(context.flags, 0);
         assert!(!context.sampled());
         Ok(())

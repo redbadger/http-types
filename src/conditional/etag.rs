@@ -16,10 +16,10 @@ use std::option;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::conditional::ETag;
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::conditional::ETag;
 ///
 /// let etag = ETag::new("0xcafebeef".to_string());
 ///

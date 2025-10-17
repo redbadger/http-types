@@ -15,10 +15,10 @@ use crate::Mime;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::content::ContentType;
-/// use http_types::{Response, Mime};
+/// use http_types_red_badger_temporary_fork::content::ContentType;
+/// use http_types_red_badger_temporary_fork::{Response, Mime};
 /// use std::str::FromStr;
 ///
 /// let content_type = ContentType::new("text/*");

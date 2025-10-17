@@ -18,10 +18,10 @@ use std::slice;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::content::{AcceptEncoding, ContentEncoding, Encoding, EncodingProposal};
-/// use http_types::Response;
+/// use http_types_red_badger_temporary_fork::content::{AcceptEncoding, ContentEncoding, Encoding, EncodingProposal};
+/// use http_types_red_badger_temporary_fork::Response;
 ///
 /// let mut accept = AcceptEncoding::new();
 /// accept.push(EncodingProposal::new(Encoding::Brotli, Some(0.8))?);
@@ -67,7 +67,8 @@ impl AcceptEncoding {
                 // Handle empty strings, and wildcard directives.
                 if part.is_empty() {
                     continue;
-                } else if part == "*" {
+                }
+                if part == "*" {
                     wildcard = true;
                     continue;
                 }

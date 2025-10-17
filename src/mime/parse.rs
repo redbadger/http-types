@@ -64,15 +64,13 @@ pub(crate) fn parse(input: &str) -> crate::Result<Mime> {
         if input.is_empty() {
             // 6.
             break;
-        } else {
-            // 5.
-            if input.starts_with(';') {
-                continue;
-            } else {
-                // It's a '='
-                input = &input[1..];
-            }
         }
+        // 5.
+        if input.starts_with(';') {
+            continue;
+        }
+        // It's a '='
+        input = &input[1..];
 
         let parameter_value = if input.starts_with('"') {
             // 8.

@@ -22,8 +22,8 @@
 //! # fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
 //! # async_std::task::block_on(async {
 //! #
-//! use http_types::{Url, Method, Request, Trailers};
-//! use http_types::headers::{HeaderName, HeaderValue};
+//! use http_types_red_badger_temporary_fork::{Url, Method, Request, Trailers};
+//! use http_types_red_badger_temporary_fork::headers::{HeaderName, HeaderValue};
 //! use async_std::task;
 //! use std::str::FromStr;
 //!
@@ -79,7 +79,7 @@ impl Trailers {
     /// ```
     /// # fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
     /// #
-    /// use http_types::Trailers;
+    /// use http_types_red_badger_temporary_fork::Trailers;
     ///
     /// let mut trailers = Trailers::new();
     /// trailers.insert("Content-Type", "text/plain");
@@ -104,7 +104,7 @@ impl Trailers {
     /// ```
     /// # fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
     /// #
-    /// use http_types::Trailers;
+    /// use http_types_red_badger_temporary_fork::Trailers;
     ///
     /// let mut trailers = Trailers::new();
     /// trailers.append("Content-Type", "text/plain");

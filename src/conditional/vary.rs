@@ -17,10 +17,10 @@ use std::str::FromStr;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::conditional::Vary;
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::conditional::Vary;
 ///
 /// let mut entries = Vary::new();
 /// entries.push("User-Agent")?;

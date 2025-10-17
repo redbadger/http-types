@@ -18,10 +18,10 @@ use std::str::FromStr;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::{Method, Response};
-/// use http_types::server::Allow;
+/// use http_types_red_badger_temporary_fork::{Method, Response};
+/// use http_types_red_badger_temporary_fork::server::Allow;
 ///
 /// let mut allow = Allow::new();
 /// allow.insert(Method::Put);

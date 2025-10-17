@@ -21,7 +21,7 @@ use crate::headers::{
 /// # Examples
 ///
 /// ```
-/// use http_types::{Response, StatusCode};
+/// use http_types_red_badger_temporary_fork::{Response, StatusCode};
 ///
 /// let mut res = Response::new(StatusCode::Ok);
 /// res.insert_header("hello", "foo0");

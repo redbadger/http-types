@@ -103,7 +103,7 @@ pub struct ReportToEndpoint {
 /// # Examples
 ///
 /// ```
-/// use http_types::{headers, security, Response, StatusCode};
+/// use http_types_red_badger_temporary_fork::{headers, security, Response, StatusCode};
 ///
 /// let mut policy = security::ContentSecurityPolicy::new();
 /// policy
@@ -154,7 +154,7 @@ impl ContentSecurityPolicy {
 
     fn insert_directive<T: AsRef<str>>(&mut self, directive: &str, source: T) {
         let directive = String::from(directive);
-        let directives = self.directives.entry(directive).or_insert_with(Vec::new);
+        let directives = self.directives.entry(directive).or_default();
         let source: String = source.as_ref().to_string();
         directives.push(source);
     }

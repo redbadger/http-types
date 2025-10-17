@@ -162,7 +162,7 @@ impl Error {
         self.type_name
     }
 
-    /// Converts anything which implements `Display` into an `http_types::Error`.
+    /// Converts anything which implements `Display` into an `http_types_red_badger_temporary_fork::Error`.
     ///
     /// This is handy for errors which are not `Send + Sync + 'static` because `std::error::Error` requires `Display`.
     /// Note that any assiciated context not included in the `Display` output will be lost,
@@ -173,7 +173,7 @@ impl Error {
         anyhow::Error::msg(error.to_string()).into()
     }
 
-    /// Converts anything which implements `Debug` into an `http_types::Error`.
+    /// Converts anything which implements `Debug` into an `http_types_red_badger_temporary_fork::Error`.
     ///
     /// This is handy for errors which are not `Send + Sync + 'static` because `std::error::Error` requires `Debug`.
     /// Note that any assiciated context not included in the `Debug` output will be lost,

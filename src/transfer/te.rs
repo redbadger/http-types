@@ -19,10 +19,10 @@ use std::slice;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::transfer::{TE, TransferEncoding, Encoding, EncodingProposal};
-/// use http_types::Response;
+/// use http_types_red_badger_temporary_fork::transfer::{TE, TransferEncoding, Encoding, EncodingProposal};
+/// use http_types_red_badger_temporary_fork::Response;
 ///
 /// let mut te = TE::new();
 /// te.push(EncodingProposal::new(Encoding::Brotli, Some(0.8))?);
@@ -69,7 +69,8 @@ impl TE {
                 // Handle empty strings, and wildcard directives.
                 if part.is_empty() {
                     continue;
-                } else if part == "*" {
+                }
+                if part == "*" {
                     wildcard = true;
                     continue;
                 }

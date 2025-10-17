@@ -21,7 +21,7 @@ pin_project_lite::pin_project! {
     /// # Examples
     ///
     /// ```
-    /// use http_types::Request;
+    /// use http_types_red_badger_temporary_fork::Request;
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.set_body("Hello, Nori!");
@@ -155,9 +155,9 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Request, Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Request, Response, StatusCode};
     /// let mut req = Request::get("https://example.com");
     /// assert_eq!(req.url().scheme(), "https");
     /// #
@@ -172,9 +172,9 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Method, Request, Response, StatusCode, Url};
+    /// use http_types_red_badger_temporary_fork::{Method, Request, Response, StatusCode, Url};
     /// let mut req = Request::get("https://example.com");
     /// req.url_mut().set_scheme("http");
     /// assert_eq!(req.url().scheme(), "http");
@@ -190,7 +190,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.set_body("Hello, Nori!");
@@ -206,9 +206,9 @@ impl Request {
     ///
     /// ```
     /// # use async_std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// #
-    /// use http_types::{Body, Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Request};
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.set_body("Hello, Nori!");
@@ -232,9 +232,9 @@ impl Request {
     ///
     /// ```
     /// # use async_std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// #
-    /// use http_types::{Body, Request};
+    /// use http_types_red_badger_temporary_fork::{Body, Request};
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.set_body("Hello, Nori!");
@@ -258,9 +258,9 @@ impl Request {
     ///
     /// ```
     /// # use async_std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// #
-    /// use http_types::{Body, Request};
+    /// use http_types_red_badger_temporary_fork::{Body, Request};
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.set_body("Hello, Nori!");
@@ -291,9 +291,9 @@ impl Request {
     ///
     /// ```
     /// # use std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// use async_std::io::Cursor;
-    /// use http_types::{Body, Request};
+    /// use http_types_red_badger_temporary_fork::{Body, Request};
     ///
     /// let mut req = Request::get("https://example.com");
     ///
@@ -318,8 +318,8 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::{Body, Request};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::{Body, Request};
     ///
     /// let bytes = vec![1, 2, 3];
     /// let mut req = Request::get("https://example.com");
@@ -344,9 +344,9 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::convert::{Deserialize, Serialize};
-    /// use http_types::{Body, Request};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::convert::{Deserialize, Serialize};
+    /// use http_types_red_badger_temporary_fork::{Body, Request};
     ///
     /// #[derive(Debug, Serialize, Deserialize)]
     /// struct Cat {
@@ -378,9 +378,9 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::convert::{Deserialize, Serialize};
-    /// use http_types::{Body, Request};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::convert::{Deserialize, Serialize};
+    /// use http_types_red_badger_temporary_fork::{Body, Request};
     ///
     /// #[derive(Debug, Serialize, Deserialize)]
     /// struct Cat {
@@ -424,7 +424,7 @@ impl Request {
     /// ```
     /// # fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
     /// #
-    /// use http_types::Request;
+    /// use http_types_red_badger_temporary_fork::Request;
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.insert_header("Content-Type", "text/plain");
@@ -450,7 +450,7 @@ impl Request {
     /// ```
     /// # fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
     /// #
-    /// use http_types::Request;
+    /// use http_types_red_badger_temporary_fork::Request;
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.append_header("Content-Type", "text/plain");
@@ -503,9 +503,9 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Request, Version};
+    /// use http_types_red_badger_temporary_fork::{Request, Version};
     ///
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
     /// let mut req = Request::get("https://example.com");
     /// assert_eq!(req.version(), None);
@@ -524,9 +524,9 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Request, Version};
+    /// use http_types_red_badger_temporary_fork::{Request, Version};
     ///
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
     /// let mut req = Request::get("https://example.com");
     /// req.set_version(Some(Version::Http2_0));
@@ -592,9 +592,9 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Request, Version};
+    /// use http_types_red_badger_temporary_fork::{Request, Version};
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.ext_mut().insert("hello from the extension");
@@ -611,8 +611,8 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::convert::Deserialize;
-    /// use http_types::Request;
+    /// use http_types_red_badger_temporary_fork::convert::Deserialize;
+    /// use http_types_red_badger_temporary_fork::Request;
     /// use std::collections::HashMap;
     ///
     /// // An owned structure:
@@ -657,8 +657,8 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::convert::Serialize;
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::convert::Serialize;
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     /// use std::collections::HashMap;
     ///
     /// #[derive(Serialize)]
@@ -687,7 +687,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::get("https://example.com");
     /// req.set_body("Hello, Nori!");
@@ -709,7 +709,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::head("https://example.com");
     /// assert_eq!(req.method(), Method::Head);
@@ -730,7 +730,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::post("https://example.com");
     /// assert_eq!(req.method(), Method::Post);
@@ -751,7 +751,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::put("https://example.com");
     /// assert_eq!(req.method(), Method::Put);
@@ -771,7 +771,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::delete("https://example.com");
     /// assert_eq!(req.method(), Method::Delete);
@@ -792,7 +792,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::connect("https://example.com");
     /// assert_eq!(req.method(), Method::Connect);
@@ -813,7 +813,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::options("https://example.com");
     /// assert_eq!(req.method(), Method::Options);
@@ -834,7 +834,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::trace("https://example.com");
     /// assert_eq!(req.method(), Method::Trace);
@@ -854,7 +854,7 @@ impl Request {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Method, Request};
+    /// use http_types_red_badger_temporary_fork::{Method, Request};
     ///
     /// let mut req = Request::patch("https://example.com");
     /// assert_eq!(req.method(), Method::Patch);
@@ -889,7 +889,7 @@ impl Clone for Request {
 }
 
 impl AsyncRead for Request {
-    #[allow(missing_doc_code_examples)]
+    #[allow(rustdoc::missing_doc_code_examples)]
     fn poll_read(
         mut self: Pin<&mut Self>,
         cx: &mut Context<'_>,
@@ -900,7 +900,7 @@ impl AsyncRead for Request {
 }
 
 impl AsyncBufRead for Request {
-    #[allow(missing_doc_code_examples)]
+    #[allow(rustdoc::missing_doc_code_examples)]
     fn poll_fill_buf(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<io::Result<&'_ [u8]>> {
         let this = self.project();
         this.body.poll_fill_buf(cx)

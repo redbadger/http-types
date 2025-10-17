@@ -16,10 +16,10 @@ use std::option;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::transfer::{TransferEncoding, Encoding};
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::transfer::{TransferEncoding, Encoding};
 /// let mut encoding = TransferEncoding::new(Encoding::Chunked);
 ///
 /// let mut res = Response::new(200);

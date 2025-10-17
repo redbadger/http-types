@@ -48,7 +48,7 @@ impl Extensions {
         self.map
             .as_ref()
             .and_then(|m| m.get(&TypeId::of::<T>()))
-            .and_then(|boxed| (&**boxed as &(dyn Any)).downcast_ref())
+            .and_then(|boxed| (&**boxed as &dyn Any).downcast_ref())
     }
 
     /// Get a mutable reference to a value previously inserted on this `Extensions`.
@@ -56,7 +56,7 @@ impl Extensions {
         self.map
             .as_mut()
             .and_then(|m| m.get_mut(&TypeId::of::<T>()))
-            .and_then(|boxed| (&mut **boxed as &mut (dyn Any)).downcast_mut())
+            .and_then(|boxed| (&mut **boxed as &mut dyn Any).downcast_mut())
     }
 
     /// Remove a value from this `Extensions`.

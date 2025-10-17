@@ -23,10 +23,10 @@ use std::slice;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::conditional::{IfNoneMatch, ETag};
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::conditional::{IfNoneMatch, ETag};
 ///
 /// let mut entries = IfNoneMatch::new();
 /// entries.push(ETag::new("0xcafebeef".to_string()));

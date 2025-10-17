@@ -1,10 +1,10 @@
-use http_types::{bail, ensure, ensure_eq, Error, StatusCode};
+use http_types_red_badger_temporary_fork::{bail, ensure, ensure_eq, Error, StatusCode};
 use std::io;
 
 #[test]
 fn can_be_boxed() {
     fn can_be_boxed() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
-        let err = io::Error::new(io::ErrorKind::Other, "Oh no");
+        let err = io::Error::other("Oh no");
         Err(Error::new(StatusCode::NotFound, err).into())
     }
     assert!(can_be_boxed().is_err());
@@ -12,8 +12,8 @@ fn can_be_boxed() {
 
 #[test]
 fn internal_server_error_by_default() {
-    fn run() -> http_types::Result<()> {
-        Err(io::Error::new(io::ErrorKind::Other, "Oh no").into())
+    fn run() -> http_types_red_badger_temporary_fork::Result<()> {
+        Err(io::Error::other("Oh no").into())
     }
     let err = run().unwrap_err();
     assert_eq!(err.status(), 500);
@@ -21,7 +21,7 @@ fn internal_server_error_by_default() {
 
 #[test]
 fn ensure() {
-    fn inner() -> http_types::Result<()> {
+    fn inner() -> http_types_red_badger_temporary_fork::Result<()> {
         ensure!(true, "Oh yes");
         bail!("Oh no!");
     }
@@ -33,7 +33,7 @@ fn ensure() {
 
 #[test]
 fn ensure_eq() {
-    fn inner() -> http_types::Result<()> {
+    fn inner() -> http_types_red_badger_temporary_fork::Result<()> {
         ensure_eq!(1, 1, "Oh yes");
         bail!("Oh no!");
     }
@@ -45,9 +45,9 @@ fn ensure_eq() {
 
 #[test]
 fn result_ext() {
-    use http_types::Status;
-    fn run() -> http_types::Result<()> {
-        let err = io::Error::new(io::ErrorKind::Other, "Oh no");
+    use http_types_red_badger_temporary_fork::Status;
+    fn run() -> http_types_red_badger_temporary_fork::Result<()> {
+        let err = io::Error::other("Oh no");
         Err(err).status(StatusCode::NotFound)?;
         Ok(())
     }
@@ -60,8 +60,8 @@ fn result_ext() {
 
 #[test]
 fn option_ext() {
-    use http_types::Status;
-    fn run() -> http_types::Result<()> {
+    use http_types_red_badger_temporary_fork::Status;
+    fn run() -> http_types_red_badger_temporary_fork::Result<()> {
         None.status(StatusCode::NotFound)
     }
     let res = run();
@@ -73,37 +73,28 @@ fn option_ext() {
 
 #[test]
 fn anyhow_error_into_http_types_error() {
-    let anyhow_error =
-        anyhow::Error::new(std::io::Error::new(std::io::ErrorKind::Other, "irrelevant"));
+    let anyhow_error = anyhow::Error::new(std::io::Error::other("irrelevant"));
     let http_types_error: Error = anyhow_error.into();
     assert_eq!(http_types_error.status(), StatusCode::InternalServerError);
 
-    let anyhow_error =
-        anyhow::Error::new(std::io::Error::new(std::io::ErrorKind::Other, "irrelevant"));
+    let anyhow_error = anyhow::Error::new(std::io::Error::other("irrelevant"));
     let http_types_error: Error = Error::new(StatusCode::ImATeapot, anyhow_error);
     assert_eq!(http_types_error.status(), StatusCode::ImATeapot);
 }
 
 #[test]
 fn normal_error_into_http_types_error() {
-    let http_types_error: Error =
-        std::io::Error::new(std::io::ErrorKind::Other, "irrelevant").into();
+    let http_types_error: Error = std::io::Error::other("irrelevant").into();
     assert_eq!(http_types_error.status(), StatusCode::InternalServerError);
 
-    let http_types_error = Error::new(
-        StatusCode::ImATeapot,
-        std::io::Error::new(std::io::ErrorKind::Other, "irrelevant"),
-    );
+    let http_types_error = Error::new(StatusCode::ImATeapot, std::io::Error::other("irrelevant"));
     assert_eq!(http_types_error.status(), StatusCode::ImATeapot);
 }
 
 #[test]
 fn u16_into_status_code_in_http_types_error() {
-    let http_types_error = Error::new(404, io::Error::new(io::ErrorKind::Other, "Not Found"));
-    let http_types_error2 = Error::new(
-        StatusCode::NotFound,
-        io::Error::new(io::ErrorKind::Other, "Not Found"),
-    );
+    let http_types_error = Error::new(404, io::Error::other("Not Found"));
+    let http_types_error2 = Error::new(StatusCode::NotFound, io::Error::other("Not Found"));
     assert_eq!(http_types_error.status(), http_types_error2.status());
 
     let http_types_error = Error::from_str(404, "Not Found");
@@ -113,10 +104,7 @@ fn u16_into_status_code_in_http_types_error() {
 #[test]
 #[should_panic]
 fn fail_test_u16_into_status_code_in_http_types_error_new() {
-    let _http_types_error = Error::new(
-        1000,
-        io::Error::new(io::ErrorKind::Other, "Incorrect status code"),
-    );
+    let _http_types_error = Error::new(1000, io::Error::other("Incorrect status code"));
 }
 
 #[test]

@@ -12,10 +12,10 @@ use std::time::SystemTime;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::other::Date;
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::other::Date;
 ///
 /// use std::time::{Duration, SystemTime};
 ///

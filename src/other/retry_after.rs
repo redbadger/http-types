@@ -14,10 +14,10 @@ use crate::utils::{fmt_http_date, parse_http_date};
 /// # Examples
 ///
 /// ```no_run
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::other::RetryAfter;
-/// use http_types::Response;
+/// use http_types_red_badger_temporary_fork::other::RetryAfter;
+/// use http_types_red_badger_temporary_fork::Response;
 /// use std::time::{SystemTime, Duration};
 /// use async_std::task;
 ///

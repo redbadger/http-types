@@ -7,10 +7,10 @@
 //! # Example
 //!
 //! ```
-//! use http_types::{StatusCode, Response};
+//! use http_types_red_badger_temporary_fork::{StatusCode, Response};
 //!
 //! let mut res = Response::new(StatusCode::Ok);
-//! http_types::security::default(&mut res);
+//! http_types_red_badger_temporary_fork::security::default(&mut res);
 // //! assert_eq!(res["X-Content-Type-Options"], "nosniff");
 // //! assert_eq!(res["X-XSS-Protection"], "1; mode=block");
 //! ```
@@ -28,10 +28,10 @@ pub use timing_allow_origin::TimingAllowOrigin;
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
-// /// http_types::security::default(&mut headers);
+// /// http_types_red_badger_temporary_fork::security::default(&mut headers);
 // /// assert_eq!(headers["X-Content-Type-Options"], "nosniff");
 // /// assert_eq!(headers["X-XSS-Protection"], "1; mode=block");
 // /// ```
@@ -50,10 +50,10 @@ pub fn default(mut headers: impl AsMut<Headers>) {
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
-// /// http_types::security::dns_prefetch_control(&mut headers);
+// /// http_types_red_badger_temporary_fork::security::dns_prefetch_control(&mut headers);
 // /// assert_eq!(headers["X-DNS-Prefetch-Control"], "on");
 // /// ```
 #[inline]
@@ -76,10 +76,10 @@ pub enum FrameOptions {
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
-// /// http_types::security::frameguard(&mut headers, None);
+// /// http_types_red_badger_temporary_fork::security::frameguard(&mut headers, None);
 // /// assert_eq!(headers["X-Frame-Options"], "sameorigin");
 // /// ```
 #[inline]
@@ -98,11 +98,11 @@ pub fn frameguard(mut headers: impl AsMut<Headers>, guard: Option<FrameOptions>)
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
 // /// headers.as_mut().insert("X-Powered-By", "Tide/Rust".parse());
-// /// http_types::security::hide_powered_by(&mut headers);
+// /// http_types_red_badger_temporary_fork::security::hide_powered_by(&mut headers);
 // /// assert_eq!(headers.get("X-Powered-By"), None);
 // /// ```
 #[inline]
@@ -127,10 +127,10 @@ pub fn powered_by(mut headers: impl AsMut<Headers>, value: Option<HeaderValue>) 
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
-// /// http_types::security::hsts(&mut headers);
+// /// http_types_red_badger_temporary_fork::security::hsts(&mut headers);
 // /// assert_eq!(headers["Strict-Transport-Security"], "max-age=5184000");
 // /// ```
 #[inline]
@@ -147,10 +147,10 @@ pub fn hsts(mut headers: impl AsMut<Headers>) {
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
-// /// http_types::security::nosniff(&mut headers);
+// /// http_types_red_badger_temporary_fork::security::nosniff(&mut headers);
 // /// assert_eq!(headers["X-Content-Type-Options"], "nosniff");
 // /// ```
 #[inline]
@@ -164,10 +164,10 @@ pub fn nosniff(mut headers: impl AsMut<Headers>) {
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
-// /// http_types::security::xss_filter(&mut headers);
+// /// http_types_red_badger_temporary_fork::security::xss_filter(&mut headers);
 // /// assert_eq!(headers["X-XSS-Protection"], "1; mode=block");
 // /// ```
 #[inline]
@@ -205,11 +205,11 @@ pub enum ReferrerOptions {
 ///
 // /// ## Examples
 // /// ```
-// /// use http_types::Response;
+// /// use http_types_red_badger_temporary_fork::Response;
 // ///
 // /// let mut res = Response::new(StatusCode::Ok);
-// /// http_types::security::referrer_policy(&mut headers, Some(http_types::security::ReferrerOptions::UnsafeUrl));
-// /// http_types::security::referrer_policy(&mut headers, None);
+// /// http_types_red_badger_temporary_fork::security::referrer_policy(&mut headers, Some(http_types_red_badger_temporary_fork::security::ReferrerOptions::UnsafeUrl));
+// /// http_types_red_badger_temporary_fork::security::referrer_policy(&mut headers, None);
 // /// let mut referrerValues: Vec<&str> = headers.get_all("Referrer-Policy").iter().map(|x| x.to_str().unwrap()).collect();
 // /// assert_eq!(referrerValues.sort(), vec!("unsafe-url", "no-referrer").sort());
 // /// ```

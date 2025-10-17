@@ -11,10 +11,10 @@ use std::slice;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::cache::{CacheControl, CacheDirective};
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::cache::{CacheControl, CacheDirective};
 /// let mut entries = CacheControl::new();
 /// entries.push(CacheDirective::Immutable);
 /// entries.push(CacheDirective::NoStore);

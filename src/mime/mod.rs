@@ -19,7 +19,7 @@ use infer::Infer;
 /// An IANA media type.
 ///
 /// ```
-/// use http_types::Mime;
+/// use http_types_red_badger_temporary_fork::Mime;
 /// use std::str::FromStr;
 ///
 /// let mime = Mime::from_str("text/html;charset=utf-8").unwrap();
@@ -44,10 +44,10 @@ impl Mime {
     pub fn sniff(bytes: &[u8]) -> crate::Result<Self> {
         let info = Infer::new();
         let mime = match info.get(bytes) {
-            Some(info) => info.mime,
+            Some(info) => info.mime_type(),
             None => crate::bail!("Could not sniff the mime type"),
         };
-        Mime::from_str(&mime)
+        Mime::from_str(mime)
     }
 
     /// Guess the mime type from a file extension

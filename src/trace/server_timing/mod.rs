@@ -3,10 +3,10 @@
 //! # Examples
 //!
 //! ```
-//! # fn main() -> http_types::Result<()> {
+//! # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 //! #
-//! use http_types::Response;
-//! use http_types::trace::{ServerTiming, Metric};
+//! use http_types_red_badger_temporary_fork::Response;
+//! use http_types_red_badger_temporary_fork::trace::{ServerTiming, Metric};
 //!
 //! let mut timings = ServerTiming::new();
 //! timings.push(Metric::new("server".to_owned(), None, None)?);
@@ -44,10 +44,10 @@ use crate::headers::{HeaderName, HeaderValue, Headers, ToHeaderValues, SERVER_TI
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::trace::{ServerTiming, Metric};
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::trace::{ServerTiming, Metric};
 ///
 /// let mut timings = ServerTiming::new();
 /// timings.push(Metric::new("server".to_owned(), None, None)?);

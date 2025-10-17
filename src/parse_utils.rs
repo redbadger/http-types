@@ -136,7 +136,7 @@ mod test {
     fn token_unsuccessful_parses() {
         assert_eq!(parse_token(""), (None, ""));
         assert_eq!(parse_token("=value"), (None, "=value"));
-        for c in r#"(),/:;<=>?@[\]{}"#.chars() {
+        for c in r"(),/:;<=>?@[\]{}".chars() {
             let s = c.to_string();
             assert_eq!(parse_token(&s), (None, &*s));
 
@@ -156,7 +156,7 @@ mod test {
             parse_quoted_string(r#""escaped \" quote \""rest"#),
             (
                 Some(Cow::Owned(String::from(r#"escaped " quote ""#))),
-                r#"rest"#
+                r"rest"
             )
         );
     }
@@ -165,7 +165,7 @@ mod test {
     fn qstring_unsuccessful_parses() {
         assert_eq!(parse_quoted_string(r#""abc"#), (None, "\"abc"));
         assert_eq!(parse_quoted_string(r#"hello""#), (None, "hello\"",));
-        assert_eq!(parse_quoted_string(r#"=value\"#), (None, "=value\\"));
+        assert_eq!(parse_quoted_string(r"=value\"), (None, "=value\\"));
         assert_eq!(parse_quoted_string(r#"\""#), (None, r#"\""#));
         assert_eq!(parse_quoted_string(r#""\""#), (None, r#""\""#));
     }

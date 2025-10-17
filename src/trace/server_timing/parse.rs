@@ -84,7 +84,7 @@ fn parse_entry(s: &str) -> crate::Result<Metric> {
                 }
                 desc = Some(value.to_string());
             }
-            _ => continue,
+            _ => {}
         }
     }
 
@@ -128,7 +128,7 @@ mod test {
         assert_entry(r#"DB; desc ="a db""#, "DB", None, Some("a db"))?;
         assert_entry(r#"DB; desc= "a db""#, "DB", None, Some("a db"))?;
         assert_entry(r#"DB; desc = "a db""#, "DB", None, Some("a db"))?;
-        assert_entry(r#"DB; desc=a_db"#, "DB", None, Some("a_db"))?;
+        assert_entry(r"DB; desc=a_db", "DB", None, Some("a_db"))?;
         assert_entry_err(
             r#"DB; desc="db"#,
             "Server timing description params must use matching quotes",

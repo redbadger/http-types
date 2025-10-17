@@ -15,7 +15,7 @@ use std::process::{Command, ExitStatus, Stdio};
 // `#![cfg_attr(backtrace, feature(backtrace))]`
 // and gate our backtrace code behind `#[cfg(backtrace)]`
 
-const PROBE: &str = r#"
+const PROBE: &str = r"
     #![feature(backtrace)]
     #![allow(dead_code)]
 
@@ -41,7 +41,7 @@ const PROBE: &str = r#"
             unimplemented!()
         }
     }
-"#;
+";
 
 fn main() {
     match compile_probe() {

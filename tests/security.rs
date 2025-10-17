@@ -1,4 +1,4 @@
-use http_types::{security, Response, StatusCode};
+use http_types_red_badger_temporary_fork::{security, Response, StatusCode};
 
 #[test]
 fn security_test() {

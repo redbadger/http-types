@@ -56,7 +56,6 @@ impl<'a> Iterator for Values<'a> {
                 // If no item is found, unset the slot and loop again.
                 None => {
                     self.slot = None;
-                    continue;
                 }
             }
         }

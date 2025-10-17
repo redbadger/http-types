@@ -23,9 +23,9 @@ pin_project_lite::pin_project! {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Response, StatusCode};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// res.set_body("Hello, Nori!");
@@ -107,7 +107,7 @@ impl Response {
     /// ```
     /// # fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
     /// #
-    /// use http_types::{Method, Response, StatusCode, Url};
+    /// use http_types_red_badger_temporary_fork::{Method, Response, StatusCode, Url};
     ///
     /// let mut req = Response::new(StatusCode::Ok);
     /// req.insert_header("Content-Type", "text/plain");
@@ -133,7 +133,7 @@ impl Response {
     /// ```
     /// # fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
     /// #
-    /// use http_types::{Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Response, StatusCode};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// res.append_header("Content-Type", "text/plain");
@@ -149,9 +149,9 @@ impl Response {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Response, StatusCode};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// res.set_body("Hello, Nori!");
@@ -168,9 +168,9 @@ impl Response {
     ///
     /// ```
     /// # use async_std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// #
-    /// use http_types::{Body, Method, Response, StatusCode, Url};
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Response, StatusCode, Url};
     ///
     /// let mut req = Response::new(StatusCode::Ok);
     /// req.set_body("Hello, Nori!");
@@ -196,9 +196,9 @@ impl Response {
     ///
     /// ```
     /// # use async_std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// #
-    /// use http_types::{Body, Method, Response, StatusCode, Url};
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Response, StatusCode, Url};
     ///
     /// let mut req = Response::new(StatusCode::Ok);
     /// req.set_body("Hello, Nori!");
@@ -223,9 +223,9 @@ impl Response {
     ///
     /// ```
     /// # use async_std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// #
-    /// use http_types::{Body, Method, Response, StatusCode, Url};
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Response, StatusCode, Url};
     ///
     /// let mut req = Response::new(StatusCode::Ok);
     /// req.set_body("Hello, Nori!");
@@ -256,9 +256,9 @@ impl Response {
     ///
     /// ```
     /// # use std::io::prelude::*;
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
     /// use async_std::io::Cursor;
-    /// use http_types::{Body, Method, Response, StatusCode, Url};
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Response, StatusCode, Url};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// let cursor = Cursor::new("Hello Nori");
@@ -282,8 +282,8 @@ impl Response {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::{Body, Method, Response, StatusCode, Url};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Response, StatusCode, Url};
     ///
     /// let bytes = vec![1, 2, 3];
     /// let mut res = Response::new(StatusCode::Ok);
@@ -308,9 +308,9 @@ impl Response {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::convert::{Deserialize, Serialize};
-    /// use http_types::{Body, Method, Response, StatusCode, Url};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::convert::{Deserialize, Serialize};
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Response, StatusCode, Url};
     ///
     /// #[derive(Debug, Serialize, Deserialize)]
     /// struct Cat {
@@ -342,9 +342,9 @@ impl Response {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::convert::{Deserialize, Serialize};
-    /// use http_types::{Body, Method, Response, StatusCode, Url};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::convert::{Deserialize, Serialize};
+    /// use http_types_red_badger_temporary_fork::{Body, Method, Response, StatusCode, Url};
     ///
     /// #[derive(Debug, Serialize, Deserialize)]
     /// struct Cat {
@@ -407,9 +407,9 @@ impl Response {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Response, StatusCode, Version};
+    /// use http_types_red_badger_temporary_fork::{Response, StatusCode, Version};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// assert_eq!(res.version(), None);
@@ -453,9 +453,9 @@ impl Response {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Response, StatusCode, Version};
+    /// use http_types_red_badger_temporary_fork::{Response, StatusCode, Version};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// res.set_version(Some(Version::Http2_0));
@@ -555,9 +555,9 @@ impl Response {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> Result<(), http_types::Error> {
+    /// # fn main() -> Result<(), http_types_red_badger_temporary_fork::Error> {
     /// #
-    /// use http_types::{Response, StatusCode, Version};
+    /// use http_types_red_badger_temporary_fork::{Response, StatusCode, Version};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// res.ext_mut().insert("hello from the extension");
@@ -593,7 +593,7 @@ impl Clone for Response {
 }
 
 impl AsyncRead for Response {
-    #[allow(missing_doc_code_examples)]
+    #[allow(rustdoc::missing_doc_code_examples)]
     fn poll_read(
         mut self: Pin<&mut Self>,
         cx: &mut Context<'_>,
@@ -604,7 +604,7 @@ impl AsyncRead for Response {
 }
 
 impl AsyncBufRead for Response {
-    #[allow(missing_doc_code_examples)]
+    #[allow(rustdoc::missing_doc_code_examples)]
     fn poll_fill_buf(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<io::Result<&'_ [u8]>> {
         let this = self.project();
         this.body.poll_fill_buf(cx)

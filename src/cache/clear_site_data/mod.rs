@@ -25,10 +25,10 @@ pub use directive::ClearDirective;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::cache::{ClearSiteData, ClearDirective};
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::cache::{ClearSiteData, ClearDirective};
 ///
 /// let mut entries = ClearSiteData::new();
 /// entries.push(ClearDirective::Cache);

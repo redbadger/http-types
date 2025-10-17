@@ -8,10 +8,10 @@
 //! # Examples
 //!
 //! ```
-//! # fn main() -> http_types::Result<()> {
+//! # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 //! #
-//! use http_types::{Response, Url};
-//! use http_types::security::TimingAllowOrigin;
+//! use http_types_red_badger_temporary_fork::{Response, Url};
+//! use http_types_red_badger_temporary_fork::security::TimingAllowOrigin;
 //!
 //! let mut origins = TimingAllowOrigin::new();
 //! origins.push(Url::parse("https://example.com")?);
@@ -40,10 +40,10 @@ use std::slice;
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::{Response, Url};
-/// use http_types::security::TimingAllowOrigin;
+/// use http_types_red_badger_temporary_fork::{Response, Url};
+/// use http_types_red_badger_temporary_fork::security::TimingAllowOrigin;
 ///
 /// let mut origins = TimingAllowOrigin::new();
 /// origins.push(Url::parse("https://example.com")?);
@@ -89,7 +89,7 @@ impl TimingAllowOrigin {
             for origin in header.as_str().split(',') {
                 match origin.trim_start() {
                     "*" => wildcard = true,
-                    r#""null""# => continue,
+                    r#""null""# => {}
                     origin => {
                         let url = Url::parse(origin).status(400)?;
                         origins.push(url);

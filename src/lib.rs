@@ -1,3 +1,4 @@
+#![allow(unknown_lints)]
 //! # Common types for HTTP operations.
 //!
 //! `http-types` provides shared types for HTTP operations. It combines a performant, streaming
@@ -6,9 +7,9 @@
 //! # Example
 //!
 //! ```
-//! # fn main() -> Result<(), http_types::url::ParseError> {
+//! # fn main() -> Result<(), http_types_red_badger_temporary_fork::url::ParseError> {
 //! #
-//! use http_types::{Method, Request, Response, StatusCode};
+//! use http_types_red_badger_temporary_fork::{Method, Request, Response, StatusCode};
 //!
 //! let mut req = Request::new(Method::Get, "https://example.com");
 //! req.set_body("Hello, Nori!");

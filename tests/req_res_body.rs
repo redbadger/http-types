@@ -1,5 +1,5 @@
 use futures_lite::{future, AsyncReadExt};
-use http_types::{Body, Method, Request, Response, StatusCode, Url};
+use http_types_red_badger_temporary_fork::{Body, Method, Request, Response, StatusCode, Url};
 
 #[test]
 fn test_req_res_set_body() {

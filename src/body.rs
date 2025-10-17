@@ -23,7 +23,7 @@ pin_project_lite::pin_project! {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Body, Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Body, Response, StatusCode};
     /// use async_std::io::Cursor;
     ///
     /// let mut req = Response::new(StatusCode::Ok);
@@ -69,7 +69,7 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Body, Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Body, Response, StatusCode};
     ///
     /// let mut req = Response::new(StatusCode::Ok);
     /// req.set_body(Body::empty());
@@ -93,7 +93,7 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Body, Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Body, Response, StatusCode};
     /// use async_std::io::Cursor;
     ///
     /// let mut req = Response::new(StatusCode::Ok);
@@ -120,7 +120,7 @@ impl Body {
     ///
     /// ```
     /// # use std::io::prelude::*;
-    /// use http_types::Body;
+    /// use http_types_red_badger_temporary_fork::Body;
     /// use async_std::io::Cursor;
     ///
     /// let cursor = Cursor::new("Hello Nori");
@@ -141,7 +141,7 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Body, Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Body, Response, StatusCode};
     /// use async_std::io::Cursor;
     ///
     /// let mut req = Response::new(StatusCode::Ok);
@@ -163,8 +163,8 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::Body;
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::Body;
     ///
     /// let bytes = vec![1, 2, 3];
     /// let body = Body::from_bytes(bytes);
@@ -191,7 +191,7 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Body, Response, StatusCode};
+    /// use http_types_red_badger_temporary_fork::{Body, Response, StatusCode};
     /// use async_std::io::Cursor;
     ///
     /// let mut req = Response::new(StatusCode::Ok);
@@ -213,8 +213,8 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::Body;
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::Body;
     /// use async_std::io::Cursor;
     ///
     /// let cursor = Cursor::new("Hello Nori");
@@ -239,7 +239,7 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// use http_types::{Body, convert::json};
+    /// use http_types_red_badger_temporary_fork::{Body, convert::json};
     ///
     /// let body = Body::from_json(&json!({ "name": "Chashu" }));
     /// # drop(body);
@@ -260,9 +260,9 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::Body;
-    /// use http_types::convert::{Serialize, Deserialize};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::Body;
+    /// use http_types_red_badger_temporary_fork::convert::{Serialize, Deserialize};
     ///
     /// #[derive(Debug, Serialize, Deserialize)]
     /// struct Cat { name: String }
@@ -293,9 +293,9 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::Body;
-    /// use http_types::convert::{Serialize, Deserialize};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::Body;
+    /// use http_types_red_badger_temporary_fork::convert::{Serialize, Deserialize};
     ///
     /// #[derive(Debug, Serialize, Deserialize)]
     /// struct Cat { name: String }
@@ -330,9 +330,9 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::Body;
-    /// use http_types::convert::{Serialize, Deserialize};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::Body;
+    /// use http_types_red_badger_temporary_fork::convert::{Serialize, Deserialize};
     ///
     /// #[derive(Debug, Serialize, Deserialize)]
     /// struct Cat { name: String }
@@ -357,8 +357,8 @@ impl Body {
     /// # Examples
     ///
     /// ```no_run
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::{Body, Response, StatusCode};
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::{Body, Response, StatusCode};
     ///
     /// let mut res = Response::new(StatusCode::Ok);
     /// res.set_body(Body::from_file("/path/to/file").await?);
@@ -393,7 +393,7 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// use http_types::Body;
+    /// use http_types_red_badger_temporary_fork::Body;
     /// use async_std::io::Cursor;
     ///
     /// let cursor = Cursor::new("Hello Nori");
@@ -432,8 +432,8 @@ impl Body {
     /// # Examples
     ///
     /// ```
-    /// # fn main() -> http_types::Result<()> { async_std::task::block_on(async {
-    /// use http_types::Body;
+    /// # fn main() -> http_types_red_badger_temporary_fork::Result<()> { async_std::task::block_on(async {
+    /// use http_types_red_badger_temporary_fork::Body;
     /// use async_std::io::Cursor;
     ///
     /// let cursor = Cursor::new("Hello ");
@@ -501,7 +501,7 @@ impl<'a> From<&'a [u8]> for Body {
 }
 
 impl AsyncRead for Body {
-    #[allow(missing_doc_code_examples)]
+    #[allow(rustdoc::missing_doc_code_examples)]
     fn poll_read(
         mut self: Pin<&mut Self>,
         cx: &mut Context<'_>,
@@ -523,7 +523,7 @@ impl AsyncRead for Body {
 }
 
 impl AsyncBufRead for Body {
-    #[allow(missing_doc_code_examples)]
+    #[allow(rustdoc::missing_doc_code_examples)]
     fn poll_fill_buf(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<io::Result<&'_ [u8]>> {
         self.project().reader.poll_fill_buf(cx)
     }

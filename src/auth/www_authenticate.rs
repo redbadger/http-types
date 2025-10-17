@@ -17,10 +17,10 @@ use crate::headers::{HeaderName, HeaderValue, Headers, WWW_AUTHENTICATE};
 /// # Examples
 ///
 /// ```
-/// # fn main() -> http_types::Result<()> {
+/// # fn main() -> http_types_red_badger_temporary_fork::Result<()> {
 /// #
-/// use http_types::Response;
-/// use http_types::auth::{AuthenticationScheme, WwwAuthenticate};
+/// use http_types_red_badger_temporary_fork::Response;
+/// use http_types_red_badger_temporary_fork::auth::{AuthenticationScheme, WwwAuthenticate};
 ///
 /// let scheme = AuthenticationScheme::Basic;
 /// let realm = "Access to the staging site";

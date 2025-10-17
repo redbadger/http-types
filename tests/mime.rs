@@ -2,7 +2,7 @@
 mod tests {
     use async_std::fs;
     use async_std::io;
-    use http_types::{mime, Body, Response};
+    use http_types_red_badger_temporary_fork::{mime, Body, Response};
 
     #[async_std::test]
     async fn guess_plain_text_mime() -> io::Result<()> {
@@ -14,7 +14,7 @@ mod tests {
     }
 
     #[async_std::test]
-    async fn guess_binary_mime() -> http_types::Result<()> {
+    async fn guess_binary_mime() -> http_types_red_badger_temporary_fork::Result<()> {
         let body = Body::from_file("tests/fixtures/nori.png").await?;
         let mut res = Response::new(200);
         res.set_body(body);
@@ -37,7 +37,7 @@ mod tests {
     }
 
     #[async_std::test]
-    async fn parse_empty_files() -> http_types::Result<()> {
+    async fn parse_empty_files() -> http_types_red_badger_temporary_fork::Result<()> {
         let body = Body::from_file("tests/fixtures/empty.custom").await?;
         let mut res = Response::new(200);
         res.set_body(body);
